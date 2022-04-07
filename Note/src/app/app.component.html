@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="left">
+    <div class="title">
+      <h1>Notes</h1>
+      <button (click)="onAddNote()">+</button>
+    </div>
+  
+    <div class="list">
+      <div *ngFor="let note of notes">
+        <div class="title">
+          <h2 (click)="onShowNote(note.title)">{{note.title}}</h2>
+          <button (click)="onDelNote(note.title)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" right">
+    <app-noteinfo
+      [note]="note"
+      [lasttitle]="noteinfo"
+      (createnewEmitter)="getInfo($event)"
+    ></app-noteinfo>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="info">
+  <div class="title">
+    <input type="text" [(ngModel)]="note.title" (ngModelChange)="titlechanged = true" placeholder="Please input title..."/>
+  </div>
+  <div class="content">
+    <textarea
+      name=""
+      id=""
+      cols="30"
+      rows="10"
+      [(ngModel)]="note.content "
+      (ngModelChange)="contentchanged = true"
+      placeholder="Please input content..."
+    ></textarea>
+  </div>
+  <div class="button">
+    <button (click)="onRevert()" [disabled]="!(titlechanged || contentchanged)">
+      Revert
+    </button>
+    <button (click)="onSave()" [disabled]="!(titlechanged || contentchanged)">
+      Save
+    </button>
+  </div>
+</div>
